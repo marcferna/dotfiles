@@ -17,38 +17,38 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+sudo defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
 # Disable automatic capitalization as it's annoying when typing code
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+sudo defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 # Disable smart dashes as they're annoying when typing code
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+sudo defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Disable automatic period substitution as it's annoying when typing code
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+sudo defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
 # Disable smart quotes as they're annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+sudo defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+sudo defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
 # Mouse: Speed
-defaults write NSGlobalDomain com.apple.mouse.scaling 4.0
+sudo defaults write NSGlobalDomain com.apple.mouse.scaling 4.0
 # Mouse: Disable "shake to find mouse"
-defaults write ~/Library/Preferences/.GlobalPreferences CGDisableCursorLocationMagnification -bool YES
+# defaults write ~/Library/Preferences/.GlobalPreferences CGDisableCursorLocationMagnification -bool YES
 # Mouse: Enable right click
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
 defaults write com.apple.AppleMultitouchMouse.plist MouseButtonMode TwoButton
 
 # Keyboard: Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 12
+sudo defaults write NSGlobalDomain KeyRepeat -int 2
+sudo defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 # Stop iTunes from responding to the keyboard media keys
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
@@ -132,12 +132,12 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 # Spotlight                                                                   #
 ###############################################################################
 
-# Disable Spotlight indexing
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+# Disable Spotlight indexing (this is not working due to SIP enabled)
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
-# Disable Indexing
-mdutil -i off /
-mdutil -E /
+# Disable Indexing (this is not working due to SIP enabled)
+# sudo mdutil -i off /
+# sudo mdutil -E /
 
 # Hide Spotlight from MenuBar
 defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
@@ -163,7 +163,7 @@ defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
 #   </dict>
 # </dict>
 
-/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist \
+sudo /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist \
   -c "Delete :AppleSymbolicHotKeys:64" \
   -c "Add :AppleSymbolicHotKeys:64:enabled bool false" \
   -c "Add :AppleSymbolicHotKeys:64:value:parameters array" \
@@ -191,7 +191,7 @@ defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
 #   </dict>
 # </dict>
 
-/usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist \
+sudo /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist \
   -c "Delete :AppleSymbolicHotKeys:65" \
   -c "Add :AppleSymbolicHotKeys:65:enabled bool false" \
   -c "Add :AppleSymbolicHotKeys:65:value:parameters array" \
