@@ -32,5 +32,10 @@ cask 'visual-studio-code'
 # Desktop client for WhatsApp
 cask 'whatsapp'
 
-# Xcode
-mas 'Xcode', id: 497799835
+output=$(mas account)
+if echo "$output" | grep -q "This command is not supported on this macOS version due to changes in macOS"; then
+  echo "Not installing App Store apps because of IT restrictions"
+else
+  # Xcode
+  mas 'Xcode', id: 497799835
+fi
