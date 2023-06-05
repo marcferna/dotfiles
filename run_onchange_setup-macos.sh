@@ -46,6 +46,15 @@ defaults -currentHost write NSGlobalDomain CGDisableCursorLocationMagnification 
 defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
 defaults -currentHost write com.apple.AppleMultitouchMouse.plist MouseButtonMode TwoButton
 
+# Trackpad: Speed
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.scaling 4.0
+# Trackpad: Tap to click
+defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# Trackpad: Enable right click
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+
+
 # Keyboard: Set a blazingly fast keyboard repeat rate
 defaults -currentHost  write NSGlobalDomain KeyRepeat -int 2
 defaults -currentHost  write NSGlobalDomain InitialKeyRepeat -int 12
