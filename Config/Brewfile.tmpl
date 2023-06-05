@@ -32,5 +32,6 @@ cask 'visual-studio-code'
 # Desktop client for WhatsApp
 cask 'whatsapp'
 
+appstore_blocked = system 'mas account 2>&1 | grep "This command is not supported on this macOS version due to changes in macOS" && "true" || "false"'
 # Xcode
-mas 'Xcode', id: 497799835
+mas 'Xcode', id: 497799835 unless appstore_blocked
