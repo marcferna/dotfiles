@@ -6,4 +6,4 @@
 # Install pacakages
 # Add the checkshum of the Brewfile to track changes within the file and re-run this script
 # Brewfile hash: {{ include "Config/Brewfile.tmpl" | sha256sum }}
-cd ~/Config && brew bundle
+brew bundle --file="~/Config/Brewfile"
