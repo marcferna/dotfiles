@@ -1,3 +1,50 @@
 [user]
     name = "Marc Fernandez"
     email = "{{ .email }}"
+
+[merge]
+  tool = opendiff
+
+[core]
+  # default ignored files for OSX; see below
+  excludesfile = ~/.gitignore
+  editor = vim -f
+  preloadindex = true
+  pager = "less -X"
+
+[alias]
+  # git status shortcut
+  st = status
+  # git checkout shortcut
+  co = checkout
+  # git rebase shortcut
+  rb = rebase
+  # rebase on origin/master
+  rbm = !"git rb origin/master"
+  # git cherry-pick shortcut
+  cp = cherry-pick
+  # list all aliases
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+  # sexier looking shortlog; git lg FROM..TO
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  # show an ASCII version of the commit tree
+  tree = log --graph --decorate --oneline --remotes=origin --remotes=fork --glob=refs/heads HEAD
+  tr = log --graph --decorate --oneline --remotes=origin --remotes=fork --glob=refs/heads HEAD
+  # The wip allows for a quick way to add all new and modified files to the index, while cleaning the index from the files removed from the working tree.
+  wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m \"wip\""
+  # The unwip will restore the deleted files to the working tree!
+  unwip = !"git log -n 1 | grep -q -c wip && git reset HEAD~1"
+  # git commit --amend shortcut
+  amend = !"git commit --amend; open -a iTerm"
+
+[github]
+  user = marcferna
+
+[credential]
+  helper = osxkeychain
+
+[color]
+  ui = auto
+
+[push]
+  default = simple
