@@ -49,10 +49,20 @@ defaults -currentHost write com.apple.AppleMultitouchMouse.plist MouseButtonMode
 # Trackpad: Speed
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.scaling 4.0
 # Trackpad: Tap to click
-defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Trackpad: Enable right click
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool false
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool false
+defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -integer 2
+defaults write com.apple.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool false
+defaults write com.apple.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -integer 2
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults -currentHost write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool false
+defaults -currentHost write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -integer 2
+defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool false
+defaults -currentHost write com.apple.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -integer 2
 
 
 # Keyboard: Set a blazingly fast keyboard repeat rate
