@@ -3,3 +3,7 @@
 [data]
     email = "{{ $email }}"
     location = "{{ $location }}"
+
+[merge]
+    command = "opendiff"
+    args = ["{{ .Destination }}", "{{ .Source }}"]
