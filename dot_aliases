@@ -1,2 +1,2 @@
 # GitX
-alias gitx="open -a $HOME/Applications/GitX.app ."
+alias gitx="open -a /Applications/GitX.app ."
