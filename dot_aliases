@@ -1,2 +1,5 @@
 # GitX
 alias gitx="open -a /Applications/GitX.app ."
+
+# Chezmoi
+alias chezmoi="~/./bin/chezmoi"
