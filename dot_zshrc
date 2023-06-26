@@ -106,6 +106,9 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.aliases
 
+# Add Git extensions to the path
+export PATH=$HOME/Config/git-extensions:$PATH
+
 # Load specific work configuration if exists
 WORK_CONFIG="$HOME/.workrc"
 if [[ -f "$WORK_CONFIG" ]]; then
