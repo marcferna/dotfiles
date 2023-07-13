@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#
+# Dynamically determines and creates a pull request for the current commit
+# against master.
+#
+
+# abort if not in git directory
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+  echo "Aborting. Not in a git repository."
+  exit 1
+fi
+
+remote=$(git remote)
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+default_branch="$(git remote show $remote | sed -n '/HEAD branch/s/.*: //p')"
+
+repo_path="$(git remote get-url --push $remote | sed 's#.*\.com\/##g' | sed 's#.git$##g')"
+
+open https://github.com/$repo_path/compare/$default_branch...$current_branch
+
