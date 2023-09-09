@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#
+# Adds all current changes to previous commit
+#
+
+git add -A
+git commit --amend --no-edit
