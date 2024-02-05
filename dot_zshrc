@@ -110,6 +110,9 @@ source ~/.aliases
 # Add Git extensions to the path
 export PATH=$HOME/Config/git-extensions:$PATH
 
+# Enable asdf version manager
+. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+
 # Load specific work configuration if exists
 WORK_CONFIG="$HOME/.workrc"
 if [[ -f "$WORK_CONFIG" ]]; then
