@@ -3,3 +3,6 @@ alias gitx="open -a /Applications/GitX.app ."
 
 # Chezmoi
 alias chezmoi="~/./bin/chezmoi"
+
+# bundle exec for Rails projects
+alias be="bundle exec"
